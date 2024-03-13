@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import {
   Settings,
@@ -10,16 +10,19 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Button } from "./button";
-import { useWindowWidth } from "@react-hook/window-size";
 
 type Props = {};
 
 function SideNavbar({}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
-  const onlyWidth = useWindowWidth();
-  const mobileWidth = onlyWidth < 768;
-
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+  const mobileWidth = windowWidth < 768;
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
