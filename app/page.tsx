@@ -1,7 +1,8 @@
 import Barchart from "@/components/Barchart";
 import Card, { CardContent, CardProps } from "@/components/Card";
+import SalesCard, { SalesProps } from "@/components/SalesCard";
 import PageTitle from "@/components/ui/PageTitle";
-import { CreditCard, DollarSign, Users } from "lucide-react";
+import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 
 const cardData: CardProps[] = [
   {
@@ -26,7 +27,30 @@ const cardData: CardProps[] = [
     label: "Active Now",
     amount: "+300",
     description: "+43 since last hour",
-    icon: DollarSign,
+    icon: Activity,
+  },
+];
+
+const userSalesData: SalesProps[] = [
+  {
+    name: "Fahad Ahmad",
+    email: "Fahad@test.com",
+    salesAmount: "+$1200",
+  },
+  {
+    name: "Lorem Ipsum",
+    email: "Fahad@test.com",
+    salesAmount: "+$920",
+  },
+  {
+    name: "Ipsum Lorem ",
+    email: "Lorem@test.com",
+    salesAmount: "+$430",
+  },
+  {
+    name: "Test Lorem",
+    email: "Test@test.com",
+    salesAmount: "+$510",
   },
 ];
 
@@ -57,6 +81,16 @@ export default function Home() {
               You made 350 sales this month.
             </p>
           </section>
+          <div className="flex flex-col justify-between gap-4">
+            {userSalesData.map((data, i) => (
+              <SalesCard
+                key={i}
+                name={data.name}
+                email={data.email}
+                salesAmount={data.salesAmount}
+              />
+            ))}
+          </div>
         </CardContent>
       </section>
     </div>
