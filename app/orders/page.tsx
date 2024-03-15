@@ -8,14 +8,14 @@ import React from "react";
 
 type Props = {};
 
-export type Payment = {
+type Payment = {
   order: string;
   status: "Pending" | "Processing" | "Success" | "Failed";
   lastOrder: string;
   method: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "order",
     header: "Order",
@@ -48,7 +48,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-export const data: Payment[] = [
+const data: Payment[] = [
   {
     order: "ORD001",
     status: "Pending",

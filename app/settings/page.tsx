@@ -8,12 +8,12 @@ import React from "react";
 
 type Props = {};
 
-export type Setting = {
+type Setting = {
   category: string;
   value: string | number | boolean;
 };
 
-export const columns: ColumnDef<Setting>[] = [
+const columns: ColumnDef<Setting>[] = [
   {
     accessorKey: "category",
     header: "Category",
@@ -25,7 +25,7 @@ export const columns: ColumnDef<Setting>[] = [
   },
 ];
 
-export const data: Setting[] = [
+const data: Setting[] = [
   {
     category: "Account",
     value: true,
